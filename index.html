@@ -1766,6 +1766,9 @@ body.modal-open {
   .container {
     width: 90%;
   }
+  section[id], #gallery {
+    scroll-margin-top: 70px !important; /* leaves gap for sticky header when scrolling */
+  }
 
   /* === Top bar === */
   .top-bar { display: none !important; }
@@ -1794,13 +1797,13 @@ body.modal-open {
     height: 38px;
   }
   .logo-text h1 {
-    font-size: 13.5px !important;
+    font-size: 13px !important;
     font-weight: 700;
-    line-height: 1.2;
-    max-width: 170px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.25;
+    max-width: 180px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
   .logo-text span {
     font-size: 8px;
@@ -4432,6 +4435,14 @@ if ('IntersectionObserver' in window) {
 // ---- Initialize ----
 document.addEventListener('DOMContentLoaded', () => {
   loadEvents();
+  
+  // Force browser to load at the top of the page if no hash anchor is in the URL
+  if (!window.location.hash) {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 });
 </script>
 
