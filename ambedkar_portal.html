@@ -1998,6 +1998,7 @@ body.modal-open {
     flex-wrap: nowrap !important;
     flex-direction: row !important;
     overflow-x: auto !important;
+    justify-content: flex-start !important; /* Fix flex-center scroll clipping lock */
     scroll-snap-type: x mandatory !important;
     gap: 14px !important;
     padding: 10px 16px 20px !important;
@@ -2016,7 +2017,7 @@ body.modal-open {
     flex: 0 0 84% !important;
     width: 84% !important;
     margin-bottom: 0 !important;
-    scroll-snap-align: center !important;
+    scroll-snap-align: start !important;
     box-shadow: 0 4px 16px rgba(11, 37, 69, 0.07) !important;
     border-radius: var(--radius-md) !important;
     border: 1px solid var(--border-light) !important;
